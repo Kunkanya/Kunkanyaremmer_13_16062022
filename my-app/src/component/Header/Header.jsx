@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <nav class="main-nav">
+    <nav className="main-nav">
       <Link to="/" className="main-nav-logo">
         <img
-          class="main-nav-logo-image"
+          className="main-nav-logo-image"
           src={bankLogo}
           alt="Argent Bank Logo"
         />
-        <h1 class="sr-only">Argent Bank</h1>
+        <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
         <Link className="main-nav-item" to="/signin">
