@@ -4,21 +4,29 @@ import { FaUserCircle } from "react-icons/fa"
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import User from '../../pages/User/User'
-import { sendPostServiceLogin } from '../../service/store'
 import axios from 'axios'
+import { useSelector , useDispatch } from 'react-redux'
+import { getLoginToken } from '../../features/userLogin/userSlice'
 
 const baseURL = 'http://localhost:3001'
 const endpointLogin = baseURL + '/api/v1/user/login'
 
 
+
+
+
 export default function SignIn() {
-    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [rememberMe, setRememberMe] = useState(false)
+    const dispatch = useDispatch()
+    const isLog = useSelector(state => state.user)
+
+
 
     const handleSetName = (e) => {
-        setName(e.target.value)
-        console.log("name", name)
+        setEmail(e.target.value)
+        console.log("email", email)
     }
 
     const handleSetPassword = (e) => {
@@ -30,37 +38,20 @@ export default function SignIn() {
         setRememberMe(!rememberMe)
         console.log(rememberMe)
     }
-    const user = { name, password }
+    const user = { email, password }
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        const target = e.target
-
-        console.log(name, password, rememberMe)
-        //        const test = sendPostServiceLogin(user)
-
-        const fetch = async () => {
-            try {
-                const response = await axios.post(endpointLogin, {
-                    email: name,
-                    password: password
-                })
-                console.log("response", response)
-
-                if (response.data.status === 200) {
-
-                }
-            } catch (error) {
-                console.error(error.message)
-            }
-        }
-        fetch()
-
-    }
+        console.log(email, password, rememberMe);
+        dispatch(getLoginToken({email, password}))
+           
+}
 
 
     return (
         <>
+    {isLog ? <div>Login</div> : <p>not loging</p>}
+    
             <Header />
             <main className="main bg-dark" style={{ paddingTop: "1rem", paddingBottom: "2rem", height: "83vh" }}>
                 <section className="sign-in-content">
@@ -79,7 +70,7 @@ export default function SignIn() {
                             <input type="checkbox" id="remember-me" />
                             <label htmlFor="remember-me" onClick={handleRememberMe}>Remember me</label>
                         </div>
-                        <button className="sign-in-button" type='submit'>Sign In</button>
+                        <button className="sign-in-button" type='submit'>Sign In</button>         
                     </form>
                 </section>
             </main>
