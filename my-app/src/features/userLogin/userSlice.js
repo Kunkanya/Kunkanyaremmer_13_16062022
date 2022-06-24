@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 const baseURL = 'http://localhost:3001'
-const endpointLogin = baseURL + '/api/v1/user/login'
+const URL_Login = baseURL + '/api/v1/user/login'
 
 const initialState = {
     loginToken: "",
@@ -13,11 +13,20 @@ const initialState = {
 
 export const getLoginToken = createAsyncThunk('user/getLoginToken',
     async (user) => {
-        const response = await axios.post(endpointLogin, {
+        const response = await axios.post(URL_Login, {
             email: user.email,
             password: user.password,
         })
+        console.log("response", response)
+        return response
+    })
 
+    export const getUserProgile = createAsyncThunk('user/getUserProfile',
+    async (user) => {
+        const response = await axios.post(URL_Login, {
+            email: user.email,
+            password: user.password,
+        })
         console.log("response", response)
         return response
     })
@@ -25,10 +34,10 @@ export const getLoginToken = createAsyncThunk('user/getLoginToken',
 export const userSlice = createSlice({
     name: "user",
     initialState: {      
-            loginToken: [],
+            loginToken: "",
             pending: false,
             error: false,
-            isLogin: false
+     isLogin : false
         
     },
     reducers:{
@@ -42,7 +51,7 @@ export const userSlice = createSlice({
             state.error = false
         },
         [getLoginToken.fulfilled]: (state, action) => {
-            state.loginToken = action.payload
+            state.loginToken = action.payload.data.body.token
             state.isLogin = true
             state.pending = false
             state.error = false

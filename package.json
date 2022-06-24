@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "immer": "^9.0.15",
     "react-icons": "^4.4.0"
   }
 }

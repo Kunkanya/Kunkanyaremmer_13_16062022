@@ -9,6 +9,7 @@ import Profile from './pages/Profile/Profile';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import  store  from './utils/store';
+import User from './pages/User/User';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="user" element={<User />} />
         <Route path="*" element={<Error404 message="La page que vous demandez n'existe pas" />} />
       </Routes>
     </Router>

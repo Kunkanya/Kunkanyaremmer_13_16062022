@@ -1,9 +1,29 @@
 import React from 'react'
 import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer/Footer'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 
 const User = () => {
+
+  const state = useSelector((state) => state.user)
+  const token = state.token
+  const isLogin = state.isLogin
+console.log(state)
+  console.log("token",state.loginToken)
+  console.log("islogin",state.isLogin)
+
+
+  useEffect(()=>{
+    if( token && (isLogin === true)){
+      return
+    }else {
+      // call action get profile data
+    }
+
+
+  },[])
   return (
     <div>
       <Header />
