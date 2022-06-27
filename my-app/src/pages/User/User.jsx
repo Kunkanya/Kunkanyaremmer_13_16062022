@@ -1,37 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer/Footer'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-
+import { editUserProfile, getUserProfile } from '../../features/userLogin/userSlice'
+import EditProfile from '../../component/EditProfile/EditProfile'
 
 const User = () => {
 
   const state = useSelector((state) => state.user)
-  const token = state.token
+  const dispatch = useDispatch()
+  const [newFirstName , setNewFirstName] = useState()
+  const [newLastName , setNewLastName] = useState()
+
+  const token = state.loginToken
   const isLogin = state.isLogin
-console.log(state)
-  console.log("token",state.loginToken)
-  console.log("islogin",state.isLogin)
+  const firstName = state.firstName
+  const lastName = state.lastName
 
 
   useEffect(()=>{
-    if( token && (isLogin === true)){
-      return
-    }else {
+    if( token  && !firstName){
       // call action get profile data
+      dispatch(getUserProfile(token))
+    }else {
+       
     }
-
-
   },[])
+
   return (
     <div>
       <Header />
       <main className="main bg-dark">
-      <div className="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
-        <button className="edit-button">Edit Name</button>
-      </div>
+  <EditProfile />
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
         <div className="account-content-wrapper">

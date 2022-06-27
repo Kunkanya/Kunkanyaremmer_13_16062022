@@ -2,16 +2,11 @@ import React from 'react'
 import Header from '../../component/Header/Header'
 import { FaUserCircle } from "react-icons/fa"
 import { useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import User from '../../pages/User/User'
-import axios from 'axios'
+import {  Navigate } from 'react-router-dom'
+
 import { useSelector , useDispatch } from 'react-redux'
 import { getLoginToken } from '../../features/userLogin/userSlice'
 import { useEffect } from 'react'
-
-const baseURL = 'http://localhost:3001'
-const endpointLogin = baseURL + '/api/v1/user/login'
-
 
 
 export default function SignIn() {
@@ -44,19 +39,15 @@ export default function SignIn() {
     const handleSignIn = (e) => {
         e.preventDefault();
         console.log(email, password, rememberMe);
-        dispatch(getLoginToken({email, password}))
-           
+        dispatch(getLoginToken({email, password}))           
 }
 
-console.log("loginstatus before useeffect", loginStatus)
 useEffect(()=>{
     console.log("isLoging in use effect", loginStatus)
     if(loginStatus === true){
-
         setIsLogin(true)
     }
 },[loginStatus])
-
 
     return (
         <>
