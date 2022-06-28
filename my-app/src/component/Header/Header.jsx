@@ -14,29 +14,31 @@ const Header = () => {
   const isLogin = state.isLogin
   const firstName = state.firstName
 
-  const handelLogOut=()=>{
-    history.push("/")   
-    dispatch(logoutUser())  
+  const handelLogOut = () => {
+    history.push("/")
+    dispatch(logoutUser())
   }
 
   const HeaderContent = () => {
     return (
-      isLogin && (firstName != "") ? <div>
-          <FaUserCircle style={{ marginRight: "5px" }} />
-          {firstName}
-          <Link  className="main-nav-item" to="/" onClick={handelLogOut}>
-          <RiLogoutBoxRLine  style={{ marginRight: "5px" }}  />
-          Sign out
-        </Link>
-      </div>
+      isLogin && (firstName !== "") ?
+        <div className='header-content'>
+          <div className="main-nav-item">
+            <FaUserCircle style={{ marginRight: "10px", fontSize: "25px" }} />
+            <p style={{ fontWeight: "bold" }}>{firstName}</p>
+          </div>
+          <Link className="main-nav-item" to="/" onClick={handelLogOut}>
+            <RiLogoutBoxRLine style={{ marginRight: "10px", fontSize: "25px" }} />
+            <p>Sign out</p>
+          </Link>
+        </div>
         :
         <div>
           <Link className="main-nav-item" to="/signin">
-            <FaUserCircle style={{ marginRight: "5px" }} />
+            <FaUserCircle style={{ marginRight: "10px", fontSize: "25px" }} />
             Sign In
           </Link>
         </div>
-
     )
   }
 

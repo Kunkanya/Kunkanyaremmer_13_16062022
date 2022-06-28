@@ -15,7 +15,6 @@ const Error404 = (message) => {
   return (
         <main className='error-container'>
           <h1 > Oups! Sorry!</h1>
-          <h2 style={{marginTop: "3rem", color: "red" }}>Quelque chose ne va pas !!!!!</h2>
           <h2 style={{marginTop: "1rem",marginBottom:"1rem", color: "red" }}>{message.message}!!!!!</h2>
           <Link to="/" className='back-home' >Retourner sur la page d’accueil</Link>
         </main>

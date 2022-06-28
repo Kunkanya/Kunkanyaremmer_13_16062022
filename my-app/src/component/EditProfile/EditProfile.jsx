@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { editUserProfile } from '../../features/userLogin/userSlice'
 
 const EditProfile = () => {
-    const [isEdit, setIsEdit] = useState(false)
     const dispatch = useDispatch()
     const state = useSelector((state) => state.user)
+
+    const [isEdit, setIsEdit] = useState(false)
     const [newFirstName, setNewFirstName] = useState()
     const [newLastName, setNewLastName] = useState()
 
@@ -13,21 +14,17 @@ const EditProfile = () => {
     const lastName = state.lastName
     const token = state.loginToken
 
-
-    const handelShowEditProfile = () => {
-        setIsEdit(true)
-        }
+    const handelShowEditProfile = () => {setIsEdit(!isEdit)}
 
     const handelSubmitNewProfile = (e) => {
         e.preventDefault()
         if (newFirstName || newLastName) {
             dispatch(editUserProfile({token, newFirstName, newLastName}))
+            setIsEdit(!isEdit)
         }
     }
 
-    const handelCancelProfile = (e) => {
-    return        setIsEdit(false)
-    }
+    const handelCancelProfile = () => {setIsEdit(!isEdit)}
 
     return (
         <>
@@ -35,8 +32,9 @@ const EditProfile = () => {
                 <h1>Welcome back</h1>
                 {isEdit ?
                     <form onSubmit={handelSubmitNewProfile} className="editProfile-content">
-                        <div className="">
+                        <div className="edit-form-section">
                             <input type="text"
+                
                                 id="newFirstName"
                                 placeholder={firstName}
                                 onChange={(e) => setNewFirstName(e.target.value)} />
@@ -46,7 +44,7 @@ const EditProfile = () => {
                                 onChange={(e) => setNewLastName(e.target.value)} />
                         </div>
                         <button className="edit-btn" type='submit'>Save</button>
-                        <button className="edit-btn" type='submit'>Cancel</button>
+                        <button className="edit-btn" type="button" onClick={handelCancelProfile} >Cancel</button>
                     </form>
                     :
                     <div>

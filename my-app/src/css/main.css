@@ -42,6 +42,11 @@ body {
   /* 3 */
 }
 
+.error{
+  color:red;
+  font-size: 12px;
+  font-weight: bold;
+}
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -57,10 +62,18 @@ body {
 .main-nav a.router-link-exact-active {
   color: #42b983;
 }
+.header-content{
+  display: flex;
+  flex-direction: row;
+}
 
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .main-nav-item:hover {
@@ -171,18 +184,32 @@ body {
   background-color: #00bc77;
   color: #fff;
 }
-
+/*Kunkanya : add style for edit name button */
 .edit-btn {
   display: inline-block;
   background-color: white;
-  color: #695DF5;
+  color: #00bc77;
   font-size: 1.1rem;
   font-weight: bold;
-  border-color: #B3B3F0;
+  border-color: #00bc77;
   width: 150px;
+  height :40px;
   padding: 0.5rem 2rem;
-  margin: 1rem 0.5rem;
+  margin: 0 0.5rem;
 
+}
+
+/*Kunkanya : add style for edit name button */
+.edit-form-section input{
+  font-size: 1.1rem;
+  display: inline-block;
+  margin: 1rem 0.5rem;
+  height: 40px;
+  width: 200px;
+}
+
+.edit-form-section input::placeholder{
+  color: lightgray;
 }
 
 .sign-in-content {
