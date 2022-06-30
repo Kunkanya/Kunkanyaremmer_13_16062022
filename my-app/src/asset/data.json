@@ -1,0 +1,37 @@
+[
+    {
+        "userId": "4576",
+        "currency": "euro",
+        "accounts": [
+            {
+                "accountType": "1",
+                "accountDescription": "Checking",
+                "balanceAmount": "2082",
+                "cardNumber": "x8349"
+            },
+            {
+                "accountType": "Saving",
+                "balanceAmount": "2082",
+                "cardNumber": "x6712"
+            },
+            {
+                "accountType": "Credit",
+                "balanceAmount": "2082",
+                "cardNumber": "x8349"
+            }
+        ],
+        "transaction": [
+            {
+                "transactionId": "012547",
+                "accountType" : "1",
+                "date": "12 Jan 2022 14:12 pm.",
+                "description": "Golden sun bakery",
+                "amount": 5,
+                "balance": 2082,
+                "type": "Electronic",
+                "category": "Food",
+                "notes": "hello world"
+            }
+        ]
+    }
+]

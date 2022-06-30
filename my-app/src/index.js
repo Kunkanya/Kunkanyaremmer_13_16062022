@@ -5,7 +5,6 @@ import './index.css';
 import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import Error404 from './pages/Error404/Error404'
-import Profile from './pages/Profile/Profile';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import  store  from './utils/store';
@@ -20,7 +19,6 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="signin" element={<SignIn />} />
-        <Route path="profile" element={<Profile />} />
         <Route path="user" element={<User />} />
         <Route path="*" element={<Error404 message="La page que vous demandez n'existe pas" />} />
       </Routes>
