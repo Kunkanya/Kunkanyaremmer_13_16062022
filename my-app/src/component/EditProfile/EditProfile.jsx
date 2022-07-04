@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { editUserProfile } from '../../features/userLogin/userSlice'
 
+/**
+ * @description Editprofile component allow us to modify the user's firtname and lastname.
+ * @returns HTMLElement
+ */
 const EditProfile = () => {
     const dispatch = useDispatch()
     const state = useSelector((state) => state.user)

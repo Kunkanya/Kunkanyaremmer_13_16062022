@@ -14,6 +14,12 @@ const initState = {
     status: ""
 }
 
+/**
+ * @description : in oder to get the token we have to dispatch this action 
+ * @param {string} email
+ * @param {string} password
+ * @retuen action.payload or error message
+ */
 export const getLoginToken = createAsyncThunk('user/getLoginToken',
 
     async (user, { rejectWithValue }) => {
@@ -29,7 +35,12 @@ export const getLoginToken = createAsyncThunk('user/getLoginToken',
         }
     })
 
-
+/**
+ * @description : in oder to login to the application we have to pass token 
+ * from getLoginToken() in the header for the authorization before we can dispatch this action 
+ * @param {string} token
+ * @retuen action.payload or error message
+ */
 export const getUserProfile = createAsyncThunk('user/getUserProfile',
     async (token, { rejectWithValue }) => {
         try {
@@ -47,7 +58,17 @@ export const getUserProfile = createAsyncThunk('user/getUserProfile',
         }
     })
 
-export const editUserProfile = createAsyncThunk('user/editUserProfile',
+/**
+ * @description : in oder to modifiy the user information. We have to pass token 
+ * from getLoginToken in the header for authorization 
+ * and add the information that we need to moodify in the body.
+ * @param {string} token
+ * @param {string} userInfo.token
+ * @param {string} userInfo.firstName
+ * @param {string} userInfo.lastName
+ * @retuen action.payload or error message
+ */
+ export const editUserProfile = createAsyncThunk('user/editUserProfile',
     async (userInfo, { rejectWithValue }) => {
 
         try {
@@ -68,7 +89,9 @@ export const editUserProfile = createAsyncThunk('user/editUserProfile',
 
     })
 
-
+/**
+ * Reducers part we use createSlice() for redux-toolkit
+ */
 export const userSlice = createSlice({
     name: "user",
     initialState: initState,

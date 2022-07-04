@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * @description  Hero component
+ * @returns HTML Element
+ */
 const Hero = () => {
   return (
     <div className="hero">

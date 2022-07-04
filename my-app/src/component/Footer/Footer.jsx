@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
- * 
+ * @descrption Footer Component
  * @returns {HTMLElement}
  */
 const Footer = () => {

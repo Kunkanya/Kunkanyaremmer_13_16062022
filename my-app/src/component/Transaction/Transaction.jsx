@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 /**
- * @description : Transaction component
+ * @description : Transaction component which contain the back accounts information
  * 
  * @param {string} title 
  * @param {number} string 

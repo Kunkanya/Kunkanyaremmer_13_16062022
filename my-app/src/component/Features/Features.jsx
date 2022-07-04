@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * 
+ * @description Features component
  * @param {string} img 
  * @param {string} title 
  * @param {string} alt

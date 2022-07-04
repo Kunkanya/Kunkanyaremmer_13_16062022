@@ -3,7 +3,7 @@ import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate , useNavigate } from 'react-router-dom'
 import { getUserProfile } from '../../features/userLogin/userSlice'
 import EditProfile from '../../component/EditProfile/EditProfile'
 import Transaction from '../../component/Transaction/Transaction'
@@ -13,6 +13,7 @@ const User = () => {
 
   const state = useSelector((state) => state.user)
   const dispatch = useDispatch()
+  const history = useNavigate()
 
   const token = state.loginToken
   const isLogin = state.isLogin
@@ -29,6 +30,7 @@ const User = () => {
   return (
     <>
       {!token && <Navigate to="/" replace={true} />}
+    
       <div>
         <Header />
         <main className="main bg-dark">

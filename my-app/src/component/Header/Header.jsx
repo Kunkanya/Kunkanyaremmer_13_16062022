@@ -6,6 +6,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../../features/userLogin/userSlice'
 
+
+/**
+ * @description Header component 
+ * @returns HTMLElement
+ */
 const Header = () => {
 
   const history = useNavigate()
