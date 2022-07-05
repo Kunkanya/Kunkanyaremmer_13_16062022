@@ -1,80 +1,40 @@
-# Getting Started with Create React App
+![Create react app](https://img.shields.io/badge/build_with-create_react_app-09D3AC?style=for-the-badge&logo=Create-React-App)
+![NodeJs](https://img.shields.io/badge/Node.js-16.14.0-339933?style=for-the-badge&logo=Node.js)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![redux-toolkit](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![mangoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![ArgentBank Logo](src/asset/argentBankLogo.png)
 
 
+Argetn Bank apps is a part from Openclassroom front-end developper. The project is about a new start-up bank, Argent Bank. For this project is use redux-toolkit to manage the states in the application.
 
-# Whatyou need for this project
-- redux
-- redux devtool
-- redux toolkit
-- immer
+# Table of contents #
+1. [General information](#General)
+2. [Pre-requisites](#Pre-requisites)
+3. [How to run this project](#runProject)
+
+## 1. <a name="General">General information </a>
+Sportsee is a project 13 from Openclassroom for Front-end developer course.
+For this project, I use [**React**](https://reactjs.org/) to create an application ,also [**axios**](https://github.com/axios/axios) to call API Back-end and [**Redux-toolkit**](https://redux-toolkit.js.org/) toto manage the states in the application.
+
+## 2.<a name="Pre-requisites">Pre-requisites</a> 
+
+- [NodeJS (at least **version 14.17**)](https://nodejs.org/en/)
+- [Yarn (**version 1.22.15**)](https://yarnpkg.com/)
+- [Npm (at least **version 6.14.13**)](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
 
+## 3.<a name="runProject">How to run this project</a> 
+ 
+   ### 3.1 Back-end 
+- Fork the repository and follow the Readme instruction in that repo.(https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
+### 3.2 Front-end
+- Fork this repository https://github.com/Kunkanya/KunkanyaRemmer_12_20052022
+- Clone it on your computer
+- The **`$ npm install `** allow you to install npm.
+- The **`$ npm install axios`** allow you to install axios.
+- The **`$ npm install @reduxjs/toolkit`** allow you to install Redux Toolkit.
+- The **`$ npm start`** command in the terminal will allow you to run the application in the localhost 3000.
