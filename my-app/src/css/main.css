@@ -47,6 +47,10 @@ body {
   font-size: 12px;
   font-weight: bold;
 }
+
+.errorForm{
+  border : solid red 1px;
+}
 .main-nav {
   display: flex;
   justify-content: space-between;

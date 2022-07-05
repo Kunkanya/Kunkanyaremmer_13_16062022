@@ -14,30 +14,52 @@ export default function SignIn() {
     const [password, setPassword] = useState("")
     const [rememberMe, setRememberMe] = useState(false)
     const [isLogin, setIsLogin] = useState("false")
+    const [checkValid, setCheckValid] = useState("false")
+    const [emailError, setEmailError] = useState("")
+
+    //const [password, setPassword] = useState("")
 
     const dispatch = useDispatch()
 
     const state = useSelector((state) => state.user)
     const loginStatus = state.isLogin
     const errorMessage = state.errorMessage
-    console.log("err", errorMessage)
 
+    
     const handleSetName = (e) => {
-        setEmail(e.target.value)
+        setEmail(e.target.value.trim())        
     }
 
     const handleSetPassword = (e) => {
-        setPassword(e.target.value)
+        setPassword(e.target.value.trim())
     }
 
     const handleRememberMe = (e) => {
         setRememberMe(!rememberMe)
+        localStorage.setItem("email", email)
+        localStorage.setItem("password", password)
+    }
+
+    const Validation=()=>{
+        // check name
+        if (!email.includes(`@`)){
+            setEmailError("Invalid e-mail address")
+            setCheckValid(false)
+            return false
+        }
+        setEmailError("")
+        setCheckValid(true)
+        return true   
     }
 
     const handleSignIn = (e) => {
         e.preventDefault();
+        let isValid = Validation()
         console.log(email, password, rememberMe);
-        dispatch(getLoginToken({ email, password }))
+
+        if(isValid){
+            dispatch(getLoginToken({ email, password }))    
+        }
     }
 
     useEffect(() => {
@@ -59,9 +81,10 @@ export default function SignIn() {
                             <h1>Sign In</h1>
                             {errorMessage !== "" && <div className="error" >{errorMessage}</div>}
                             <form onSubmit={handleSignIn}>
-                                <div className="input-wrapper">
+                                <div className="input-wrapper" >
                                     <label htmlFor="username">Username</label>
-                                    <input type="text" id="username" onChange={handleSetName} required />
+                                    <input type="text" id="username" className={checkValid ? "" :"errorForm" }  onChange={handleSetName} required />
+                                    {emailError.length > 0 && <span className='error'>{emailError}</span>}
                                 </div>
                                 <div className="input-wrapper">
                                     <label htmlFor="password">Password</label>

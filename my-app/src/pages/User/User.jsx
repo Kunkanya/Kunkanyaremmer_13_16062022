@@ -3,34 +3,35 @@ import Header from '../../component/Header/Header'
 import Footer from '../../component/Footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Navigate , useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { getUserProfile } from '../../features/userLogin/userSlice'
 import EditProfile from '../../component/EditProfile/EditProfile'
 import Transaction from '../../component/Transaction/Transaction'
 
-
+/**
+ * User Profile page 
+ */
 const User = () => {
 
   const state = useSelector((state) => state.user)
   const dispatch = useDispatch()
-  const history = useNavigate()
 
-  const token = state.loginToken
+  const token = state.loginToken || localStorage.getItem("token")
+
   const isLogin = state.isLogin
   const firstName = state.firstName
 
   useEffect(() => {
     if (isLogin && token && !firstName) {
-      // call action get profile data
+      // dispatch action in order to get user's profile data
       dispatch(getUserProfile(token))
-    } else {
     }
   }, [token])
 
   return (
     <>
-      {!token && <Navigate to="/" replace={true} />}
-    
+      {/*If there is no token navigate to home*/}
+      {(!token) && <Navigate to="/" replace={true} />}
       <div>
         <Header />
         <main className="main bg-dark">

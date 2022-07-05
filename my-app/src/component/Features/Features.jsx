@@ -10,7 +10,6 @@ import PropTypes from 'prop-types'
  * @returns 
  */
 const Features = ({img,alt, title, text}) => {
-    console.log(img)
     return (
         <div className="feature-item">
             <img src={img} alt={alt} className="feature-icon" />

@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../../features/userLogin/userSlice'
 
-
 /**
  * @description Header component 
  * @returns HTMLElement
@@ -20,13 +19,15 @@ const Header = () => {
   const firstName = state.firstName
 
   const handelLogOut = () => {
-    history.push("/")
-    dispatch(logoutUser())
+//      Clear all in localstorage
+      window.localStorage.clear()
+      dispatch(logoutUser())  
+      history.push("/")
   }
 
   const HeaderContent = () => {
     return (
-      isLogin && (firstName !== "") ?
+      isLogin  ?
         <div className='header-content'>
           <div className="main-nav-item">
             <FaUserCircle style={{ marginRight: "10px", fontSize: "25px" }} />

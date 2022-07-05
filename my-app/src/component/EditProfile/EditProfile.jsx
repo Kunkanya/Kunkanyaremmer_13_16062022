@@ -19,13 +19,18 @@ const EditProfile = () => {
     const token = state.loginToken
 
     const handelShowEditProfile = () => {setIsEdit(!isEdit)}
-
+    
     const handelSubmitNewProfile = (e) => {
         e.preventDefault()
-        if (newFirstName || newLastName) {
-            dispatch(editUserProfile({token, newFirstName, newLastName}))
+
+        // Check if both fields are not blank
+        if ((newFirstName || newLastName)) {
             setIsEdit(!isEdit)
+            dispatch(editUserProfile({token, newFirstName, newLastName}))
+        }else{
+            alert("Firstname and Lastname fields cannot be blank!!")
         }
+        return
     }
 
     const handelCancelProfile = () => {setIsEdit(!isEdit)}
@@ -37,15 +42,15 @@ const EditProfile = () => {
                 {isEdit ?
                     <form onSubmit={handelSubmitNewProfile} className="editProfile-content">
                         <div className="edit-form-section">
-                            <input type="text"
-                
+                            <input 
+                                type="text"
                                 id="newFirstName"
                                 placeholder={firstName}
-                                onChange={(e) => setNewFirstName(e.target.value)} />
+                                onChange={(e) => setNewFirstName(e.target.value.trim())} />
                             <input type="text"
                                 id="newLastName"
                                 placeholder={lastName}
-                                onChange={(e) => setNewLastName(e.target.value)} />
+                                onChange={(e) => setNewLastName(e.target.value.trim())} />
                         </div>
                         <button className="edit-btn" type='submit'>Save</button>
                         <button className="edit-btn" type="button" onClick={handelCancelProfile} >Cancel</button>
